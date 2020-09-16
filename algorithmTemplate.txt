@@ -1,0 +1,43 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): 
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. 
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+
+
+3. Algorithm instructions (recipe)
+***data
+10
+***introduction 
+x0 output introduction: objective, author, instructions/rules
+***
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: 
+inputs: 
+expected final result: 
+
+999 END
+
+Test case #2:
+purpose: 
+inputs: 
+expected final result: 
+
+999 END

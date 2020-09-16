@@ -1,0 +1,91 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To calculate how old the programmer will be by the due date of the assignment
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input): 
+-programmer's input
+-yearsLived (integer) total number of years in between DOB and the due date (including birthyear and current year)
+-leapYears (integer) number of leap years in between the DOB and the due date
+-nDaysBeforeBirth (integer) total number of days before the DOB, including the DOB
+-dDaysRemaining (integer) total number of days after the due date, excluding the due date
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. input yearsLibed, nLeapYears, nDaysBY, nDaysRemaining
+4. calculate how many days old you will be by the due date of this assignment
+5. output the DOB, due date, and the number of days inbetween the dates
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-user introduction: introduction of objective, author, user instructions/rules
+-Label: "DOB: " and dob
+-Label: "Due Date: " and dueDate
+-Label: "Age: " and days
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-yearsLived (integer) total number of years in between DOB and the due date (including birthyear and current year)
+-leapYears (integer) number of leap years in between the DOB and the due date
+-nDaysBeforeBirth (integer) total number of days before the DOB, including the DOB
+-dDaysRemaining (integer) total number of days after the due date, excluding the due date
+-days (integer) how many days old you will be by the due date of the assignment
+-dob (text) person's date of birth [month, day, year]
+-dueDate (text) due date of the assignment [month, day, year]
+
+3. Algorithm instructions (recipe)
+***data
+10 set days = 0
+20 set dob = "September 9, 2005"
+30 set dueDate = "February 13, 2020"
+***introduction 
+40 output introduction: objective, author, instructions/rules
+***input 
+50 set yearsLived = 16
+60 set leapYears = 4
+70 set nDaysBeforeBirth = 252
+80 set nDaysRemaining = 322
+***calculate how many days
+90 set days = 365 * yearsLived
+100 set days = days + leapYears
+110 set days = days - nDaysBeforeBirth
+120 set days = days - nDaysRemaining
+130 output DOB, dueDate, and days
+
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: to test normal input values, which there are only one of
+Input: yearsLived = 21
+       leapYears = 5
+       nDaysBeforeBirth = 151
+       nDaysRemaining = 102
+intended output: DOB: September 9, 2005
+                 Due Date: February 13, 2020
+                 Days: 5270
+
+***data
+10 days = 0
+20 dob = "September 9, 2005"
+30 dueDate = "February 13, 2020"
+***introduction 
+40 output Objective: To calculate how old the programmer will be by the due date of the assignment
+          Author: Kristofer Santo
+***input 
+50 yearsLived = 16
+60 leapYears = 4
+70 nDaysBeforeBirth = 252
+80 nDaysRemaining = 322
+***calculate how many days
+90 days = 5840
+100 set days = 5844
+110 set days = 5592
+120 set days = 5270
+130 output DOB: September 9, 2005
+           Due Date: February 13, 2020
+           Days: 5270
+999 END
+
+ 

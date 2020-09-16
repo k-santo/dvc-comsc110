@@ -1,0 +1,137 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To allow the user to play a game of rock paper scissors with the computer, using random number generation
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-userChoice
+
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. input user's choice and convert it from character to an integer representing rock, paper, or scissors (or quit), using input validation
+4. generate the computer's choice from 0-2
+5. check if there is a tie, if the player won, or if the computer won
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-prompt Choose: [R=rock, P=paper, S=scissors, or Q=quit]
+-label tie
+-label Player wins!
+-label Computer wins!
+-label Computer wins: and computerScore and Player wins: and player score
+-label Thanks for playing!
+
+
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-userChoice (character) r, p, s, or q for rock, paper, scissors, or quit respectively
+-userPlay (integer) integer from 0-3 that represents whether the user choice rock paper, scissors, or quit
+-computerPlay (integer) randomly generated integer from 0-2 that represents whether the computer choice rock paper or scissors
+-userScore (integer) the user's score
+-computerScore (integer) the computer's score
+-continueGame (boolean) check to continue game or not
+
+3. Algorithm instructions (recipe)
+***data
+10 computerScore=0
+20 userScore=0
+30 continueGame=false
+***introduction 
+40 output introduction: objective, author, instructions/rules
+***
+50 while continueGame=true-->perform 60-220
+60 output Choose: [R=rock, P=paper, S=scissors, or Q=quit]
+70 input userChoice
+80 if userChoice is 'r' or 'R', set userPlay=0
+90 else if userChoice is 'p' or 'P', set userPlay=1
+100 else if userChoice is 's' or 'S', set userPlay=2
+110 else if userChoice is 'q' or 'Q', set continueGame=false/skip to 230
+120 computerPlay = 0-2 (randomly generated)
+130 if userPlay=computerPlay, output "tie"/skip to 220
+140 else if userPlay=0 and computerPlay=3, perform 170-180
+150 else if userPlay=1 and computerPlay=0, perform 170-180
+160 else if userPlay=2 and computerPlay=1, perform 170-180
+170 userScore=userScore+1
+180 output "Player Wins!"
+190 else, perform 200-210
+200 computerScore=computerScore+1
+210 output "Computer Wins!"
+220 output "Computer wins:" and computerScore and "Player wins:" and player score
+230 output "Thanks for playing!"
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal input values, all possible in #1
+inputs: r, s, p, q
+expected final result: 
+"Objective:To allow the user to play a game of rock paper scissors with the computer, using random number generation
+ Author: Kristofer Santo
+ Choose: [R=rock, P=paper, S=scissors, or Q=quit] r
+ Tie
+ Computer wins: 0 Player wins: 0
+ Choose: [R=rock, P=paper, S=scissors, or Q=quit] s
+ Player Wins!
+ Computer wins: 0 Player wins: 1
+ Choose: [R=rock, P=paper, S=scissors, or Q=quit] p
+ Computer Wins!
+ Computer wins: 1 Player wins: 1
+ Choose: [R=rock, P=paper, S=scissors, or Q=quit] q
+ Thanks for playing! "
+ 
+
+10 computerScore=0
+20 userScore=0
+30 continueGame=true
+40 "Objective:To allow the user to play a game of rock paper scissors with the computer, using random number generation
+    Author: Kristofer Santo"
+50 True
+60 "Choose: [R=rock, P=paper, S=scissors, or Q=quit]"
+70 userChoice='r'
+80 True, userPlay = 0
+120 computerPlay = 0 
+130 True, "Tie"
+220 "Computer wins: 0 Player wins: 0"
+50 True
+60 "Choose: [R=rock, P=paper, S=scissors, or Q=quit]"
+70 userChoice='s'
+80 False
+90 False
+100 True, userPlay=2
+120 computerPlay=1
+130 False
+140 False
+150 False
+160 True
+170 userScore=0+1=1
+180 "Player Wins!"
+220 "Computer wins: 0 Player wins: 1"
+50 True
+60 "Choose: [R=rock, P=paper, S=scissors, or Q=quit]"
+70 userChoice='p'
+80 False
+90 True, userPlay = 1
+120 computerPlay = 0
+130 False
+140 False
+150 False
+160 False
+190 True
+200 computerScore=0+1=1
+210 "Computer Wins!"
+220 "Computer wins: 1 Player wins: 1"
+50 True
+60 "Choose: [R=rock, P=paper, S=scissors, or Q=quit]"
+70 userChoice= 'q'
+80 False
+90 False
+100 False
+110 True, continueGame=false
+50 False
+230 "Thanks for playing!"
+
+999 END
+

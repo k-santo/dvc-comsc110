@@ -1,0 +1,317 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To input file names and check if the input file name has an email
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-iFileName
+-oFileName
+-lineFromFile
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. input the names of the input and output files, with input validation
+4. check if the lines from the input file have '@'
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label1: Enter input filename [default: fileContainingEmails.txt]
+-label2: Must be a '.txt' file more than 4 characters long.
+-label3: Enter output filename [default: copyPasteMyEmails.txt]
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-dFileName (text) default file name
+-iFileName (text) input file name
+-oFileName (text) output file name
+-i (integer) index loop
+-lineFromFile (text) the line that is inputted from the input file
+
+3. Algorithm instructions (recipe)
+***data
+10 dFileName="fileContainingEmails.txt"
+***introduction 
+20 output introduction: objective, author, instructions/rules
+***
+30 output label1
+40 input iFileName
+50 if length of iFileName=0, fileName=dFileName
+60 if char at length of iFileName-1='t' and char at length of iFileName-2='x' and char at length of iFileName-3='t' and char at length of iFileName-4='.' and length of iFileName>=5, skip to 85
+70 output label2
+80 skip to 40
+85 dFileName="copyPasteMyEmails.txt"
+90 output label3
+100 input oFileName
+110 if length of oFileName=0, fileName=dFileName
+120 if char at length of iFileName-1='t' and char at length of iFileName-2='x' and char at length of iFileName-3='t' and char at length of iFileName-4='.' and length of iFileName>=5, skip to 150
+130 output label2
+140 skip to 90
+150 output label4 and iFileName
+160 output label5 and oFileName
+170 open file iFileName
+180 input lineFromFile, skip to next line
+190 i = 0
+200 if lineFromFile[i]='@', output lineFromFile and skip to 230
+210 i = i + 1
+220 if i<length of lineFromFile, skip to 200
+230 if !end of file, skip to 180
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+[Test cases #1-#6 involve only instructions 10-160]
+Test case #1: 
+purpose: all default file names
+inputs: none
+expected final result: 
+Input File: fileContainingEmails.txt
+Output File: copyPasteMyEmails.txt
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName=""
+50 True
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName=""
+110 True
+120 True
+150 Input File: fileContainingEmails.txt
+160 Output File: copyPasteMyEmails.txt
+...
+
+Test case #2:
+purpose: normal input, default output
+inputs: emails.txt
+expected final result: 
+Input File: emails.txt
+Output File: copyPasteMyEmails.txt
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName="emails.txt"
+50 False
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName=""
+110 True
+120 True
+150 Input File: emails.txt
+160 Output File: copyPasteMyEmails.txt
+...
+
+Test case #3:
+purpose: default input, normal output
+inputs: emails.txt
+expected final result: 
+Input File: fileContainingEmails.txt
+Output File: emails.txt
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName=""
+50 True
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName="emails.txt"
+110 False
+120 True
+150 Input File: fileContainingEmails.txt
+160 Output File: emails.txt
+...
+
+Test case #4:
+purpose: both non-default, valid inputs
+inputs: emails.txt, emails2.txt
+expected final result: 
+Input File: emails.txt
+Output File: emails2.txt
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName="emails.txt"
+50 False
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName="emails2.txt"
+110 False
+120 True
+150 Input File: emails.txt
+160 Output File: emails2.txt
+...
+
+Test case #5:
+purpose: Invalid Input with input file
+inputs: emails.tt, emails1.txt, emails2.txt
+expected final result: 
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName="emails.tt"
+50 False
+60 False
+70 Must be a 'txt' file more than 4 characters long.
+80 (skip to 30)
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName="emails1.txt"
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName="emails2.txt"
+110 False
+120 True
+150 Input File: emails1.txt
+160 Output File: emails2.txt
+...
+
+Test case #6:
+purpose: Invalid Input with output file
+inputs: emails1.txt, emails2.tx, emails2.txt
+expected final result: 
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName="emails1.txt"
+50 False
+60 True
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName="emails2.tx"
+110 False
+120 False
+130 Must be a 'txt' file more than 4 characters long.
+140 (skip to 90)
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName="emails2.txt"
+110 False
+120 True
+150 Input File: emails1.txt
+160 Output File: emails2.txt
+...
+
+[Test Case #7-#10 involve 170-999 (will use test case #1 for 10-160)]
+
+Test case #7: 
+purpose: line with 1 @
+inputs: hello@
+expected final result: 
+hello@
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName=""
+50 True
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName=""
+110 True
+120 True
+150 Input File: fileContainingEmails.txt
+160 Output File: copyPasteMyEmails.txt
+170 open file "fileContainingEmails.txt"
+180 lineFromFile=hello@
+190 i = 0
+200 False
+210 i = 0 + 1 = 1
+220 True
+200 False
+210 i = 1 + 1 = 2
+220 True
+200 False
+210 i = 2 + 1 = 3
+220 True
+200 False
+210 i = 3 + 1 = 4
+220 True
+200 False
+210 i = 4 + 1 = 5
+220 True
+200 True, hello@
+230 True
+999 END
+
+Test case #8: 
+purpose: line with multiple @
+inputs: h@llo@
+expected final result: 
+h@llo@
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName=""
+50 True
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName=""
+110 True
+120 True
+150 Input File: fileContainingEmails.txt
+160 Output File: copyPasteMyEmails.txt
+170 open file "fileContainingEmails.txt"
+180 lineFromFile=h@llo@
+190 i = 0
+200 False
+210 i = 0 + 1 = 1
+220 True
+200 True, h@llo@
+230 True
+999 END
+
+Test case #9: 
+purpose: line with no @
+inputs: hello
+expected final result: 
+
+
+10 dFileName="fileContainingEmails.txt"
+20 Objective:To input file names and check if the input file name has an email
+Author: Kristofer Santo
+30 Enter input filename [default: fileContainingEmails.txt]: 
+40 iFileName=""
+50 True
+60 True
+85 dFileName="copyPasteMyEmails.txt"
+90 Enter output filename [default:copyPasteMyEmails.txt]
+100 oFileName=""
+110 True
+120 True
+150 Input File: fileContainingEmails.txt
+160 Output File: copyPasteMyEmails.txt
+170 open file "fileContainingEmails.txt"
+180 lineFromFile=hello
+190 i = 0
+200 False
+210 i = 0 + 1 = 1
+220 True
+200 False
+210 i = 1 + 1 = 2
+220 True
+200 False
+210 i = 2 + 1 = 3
+220 True
+200 False
+210 i = 3 + 1 = 4
+220 True
+200 False
+210 i = 4 + 1 = 5
+220 False
+230 True
+999 END

@@ -1,0 +1,31 @@
+a. what are all the kinds of functions in C++?
+
+There are value-returning and void functions
+
+b. What are the 2 types of functions in C++, and how does each type of function work?
+
+Value-returning functions will return a value as an expression and void functions will act as a statement, performing a task, but not expressing anything mathematically or logically
+
+c. When are functions used?
+
+Functions are used for modularization and when a code block can be reused again but with different inputs
+
+d. Where do functions go in a program, and in what order should we list functions?
+
+They are defined outside of main (usually above unless using a function prototype) and should be listed in terms of when they are used in main
+
+e. What are parameters, what are they used for, how many can you have, and how are they documented?
+
+Variables to be inputted into a function for processing, you can have as many as you want, and they are documented after the function type and name in parentheses, with acting as completely independent variables when the function is defined
+
+f. Can a function call another function?
+
+Yes, in recursion
+
+h. What is a function prototype? 
+
+A declaration of the name and parameters of a function, before the function is defined
+
+i. What is the first code block in a function and what are the first few statements and why?
+
+Data, to ensure that data from different scopes aren't the same and to explain what the given parameters (if any) are

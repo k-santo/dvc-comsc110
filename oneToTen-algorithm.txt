@@ -1,0 +1,97 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): Will generate a random number between 1 and 10 and have the user guess the number
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input): 
+- userGuess
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. computer will randomly generate a target number  between 1 and 10
+4. game loop where the user guesses with input validation and gets guess feedback or exits the game
+
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-user introduction: introduction of objective, author, user instructions/rules
+-user feedback: "Try again..." or "You guessed it!" in case of invalid input: "I really want a number between 1 and 10"
+-prompt "What is your guess [1-10 or 0 to Exit]?"
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-target (integer) number between 1 and 10 that the user is encouraged to guess
+-userGuess (integer) the number the user guesses each try
+
+3. Algorithm instructions (recipe)
+***data
+10 initialize random number generator and set target to random number between 1 and 10
+***introduction 
+20 output introduction: objective, author, instructions/rules
+***
+30 output prompt "What is your guess [1-10 or 0 to Exit]?"
+40 input userGuess
+50 if userGuess is equal 0 then skip to instruction 999
+60 if userGuess < 1 or userGuess > 10 then output "I really want a number between 1 and 10"
+70 if userGuess is equal to target then output "You guessed it!" else "Try again..."
+80 skip to instruction 30
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: example test case from assignment directions
+input values: 5, 3, 11, 7 
+expected results: " I'm thinking of a number from 1 to 10.
+What is your guess [1-10 or 0 to Exit]? 5
+Try again...
+What is your guess [1-10 or 0 to Exit]? 3
+Try again...
+What is your guess [1-10 or 0 to Exit]? 11
+I really want a number between 1 and 10.  
+What is your guess [1-10]? 7
+You guessed it! "
+
+10 target = 7
+20 Objective: User will guess a number between 1 and 10.
+Author: Kristofer Santo 
+I'm thinking of a number between 1 and 10.
+30 What is your guess [1-10 or 0 to Exit]?
+40 userGuess=5
+50 False
+60 False
+70 Try again...
+80 skip to 30
+30 What is your guess [1-10 or 0 to Exit]?
+40 userGuess = 3
+50 False
+60 False
+70 Try again...
+80 skip to 30
+30 What is your guess [1-10 or 0 to Exit]?
+40 userGuess = 11
+50 False
+60 I really want a number between 1 and 10
+70 Try again...
+80 skip to step 30
+30 What is your guess [1-10 or 0 to Exit]
+40 userGuess = 7
+50 False
+60 False
+70 You guessed it!
+
+999 END
+
+Test case #2: 
+purpose: test user inputting sentinel value
+inputs: userGuess = 0
+expected results: stop/end
+
+10 target = 5
+20 Objective: User will guess a number between 1 and 10.
+Author: Kristofer Santo 
+I'm thinking of a number between 1 and 10.
+30 What is your guess [1-10 or 0 to Exit]
+40 userGuess = 0
+50 skip to 999
+
+999 END

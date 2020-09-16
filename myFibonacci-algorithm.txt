@@ -1,0 +1,81 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): 
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-fibonacciIndex
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. input fibonacci index, index validation
+4. calculate and output fibonacci number
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label1: The Fibonacci number at index 
+-label2: is
+-label3: Please enter a number that is 0 or greater.
+-prompt1: Enter an index [0 or greater]: 
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-fibonacciIndex (integer) the index of the desired fibonacci number
+-fibonacciNumber (integer) the desired fibonacci
+-a (integer) first fibonacci number
+-b (integer) second fibonacci number
+-i (integer) index number
+3. Algorithm instructions (recipe)
+***data
+10 fibonacciNumber=1
+15 a=1
+16 b=1
+19 i=3
+***introduction 
+20 output introduction: objective, author, instructions/rules
+***
+30 output prompt1
+40 input fibonacciIndex
+45 if fibonacciIndex<0, output label3 and skip to 30
+50 if i>=fibonacciIndex, skip to 110
+60 fibonacciNumber=a+b
+70 a=b
+80 b=fibonacciNumber
+90 i = i + 1
+100 skip to instruction 60
+110 output label 1 and fibonacciIndex and label2 and fibonacciNumber
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: 
+inputs: 
+expected final result: 
+10 fibonacciNumber=1
+15 a=1
+16 b=1
+19 i=3
+***introduction 
+20 output introduction: objective, author, instructions/rules
+***
+30 output prompt1
+40 input fibonacciIndex
+45 if fibonacciIndex<0, output label3 and skip to 30
+50 if i>=fibonacciIndex, skip to 110
+60 fibonacciNumber=a+b
+70 a=b
+80 b=fibonacciNumber
+90 i = i + 1
+100 skip to instruction 60
+110 output label 1 and fibonacciIndex and label2 and fibonacciNumber
+999 END
+
+999 END
+
+Test case #2:
+purpose: 
+inputs: 
+expected final result: 
+
+999 END

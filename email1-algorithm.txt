@@ -1,0 +1,206 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To calculate and output the monthly cost over 30 years of a fixed loan
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-anInterestRate
+-amountBorrowed
+-userResponse
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. ask user for the password in order to continue onto the game, allowing for a total of 3 tries
+4. allow the user to input the amount borrowed and the annual interest rate
+5. calculate the monthly payment over 30 years
+6. output the data 
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label1: "Amount Borrowed: $"
+-label2: "Annual Interest Rate: "
+-label3: "%"
+-label4: "Payback period: 30 years"
+-label5: "Monthly Payment: $"
+-label6: Incorrect password. You have "
+-label7: "tries left"
+-prompt1: "Please enter the password (Author's ID Number): "
+-prompt2: "Please enter the amount borrowed: "
+-prompt3: "Please enter the annual interest rate: "
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-amountBorrowed (integer) the specified amount borrowed
+-anInterestRate (decimal) the percent annual interest rate 
+-nMonthlyPayments (integer) the number of monthly payments
+-monthlyPayment (decimal) the calculated monthly payment
+-monInterestRate (decimal) the decimal monthly interest rate
+-isPasswordCorrect (boolean) checker for if password is correct
+-userResponse (string) what user inputs for password
+-correctPassword (string) correct password
+-triesLeft (integer) the number of tries left
+-fileName (string) the name of the output file
+
+3. Algorithm instructions (recipe)
+***data
+10 nMonthlyPayments = 360
+20 triesLeft = 3
+30 correctPassword = "1768976"
+40 isCorrectPassword = false
+***introduction 
+50 output introduction: objective, author, instructions/rules
+***
+60 output prompt1
+70 input userResponse
+80 if userResponse == correctPassword, then isCorrectPassword = true, skip to 120
+90 otherwise, output label 6 and triesLeft and label 7
+100 triesLeft = triesLeft - 1
+110 if triesLeft > 0, skip to 60
+120 if isCorrectPassword = false, skip to 999
+130 output prompt2
+140 input amountBorrowed
+150 output prompt 3
+160 input anInterestRate
+170 monInterestRate = anInterestRate / 1200
+180 monthlyPayment = (amountBorrowed*((1+monInterestRate)^nMonthlyPayments)*monInterestRate)/((1+monInterestRate^nMonthlyPayments)-1)
+190 fileName = "mortgage.txt"
+200 output label1 and amountBorrowed
+210 output label2 and anInterestRate and label3
+220 output label4
+230 output label5 and monthlyPayment
+240 open fileName
+250 output label1 and amountBorrowed (to fileName)
+260 output label2 and anInterestRate and label3 (to fileName)
+270 output label4 (to fileName)
+280 output label5 and monthlyPayment (to fileName)
+290 close fileName
+999 END
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal input as expected in example
+inputs: "1768976", 270000, 5.125
+expected final result: 
+"Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+"Please enter the password (Author's ID Number): 1768976"
+"Please enter the amount borrowed: 270000"
+"Please enter the annual interest rate: 5.125"
+"Amount Borrowed: $270000"
+"Annual Interest Rate: 5.125%"
+"Payback period: 30 years"
+"Monthly Payment: $1470.11"
+
+10 nMonthlyPayments = 360
+20 triesLeft = 3
+30 correctPassword = "1768976"
+40 isCorrectPassword = false
+50 "Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+60 "Please enter the password (Author's ID Number): "
+70 userResponse = "1768976"
+80 True, isCorrectPassword = true
+120 False
+130 "Please enter the amount borrowed: "
+140 amountBorrowed = 270000
+150 "Please enter the annual interest rate: "
+160 anInterestRate = 5.125
+170 monInterestRate = 5.125/1200 = 0.0042783
+180 monthlyPayment = (270000*((1+0.0042783)^360)*0.0042783)/((1+0.0042783^360)-1)=1470.11
+190 fileName = "mortgage.txt"
+200 "Amount Borrowed: $270000"
+210 "Annual Interest Rate: 5.125%"
+220 "Payback period: 30 years"
+230 "Monthly Payment: $1470.11"
+240 open fileName
+250 "Amount Borrowed: $270000"
+260 "Annual Interest Rate: 5.125%"
+270 "Payback period: 30 years"
+280 "Monthly Payment: $1470.11"
+290 close fileName
+999 END
+
+Test case #2:
+purpose: incorrect password, but right password afterwards
+inputs: "1768975", "1768976", 270000, 5.125
+expected final result: 
+"Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+"Please enter the password (Author's ID Number): 1768975"
+"Incorrect Password. You have 3 tries left"
+"Please enter the password (Author's ID Number): 1768976"
+"Please enter the amount borrowed: 270000"
+"Please enter the annual interest rate: 5.125"
+"Amount Borrowed: $270000"
+"Annual Interest Rate: 5.125%"
+"Payback period: 30 years"
+"Monthly Payment: $1470.11"
+
+10 nMonthlyPayments = 360
+20 triesLeft = 3
+30 correctPassword = "1768976"
+40 isCorrectPassword = false
+50 "Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+60 "Please enter the passwrod (Author's ID Number): "
+70 userResponse = "1768975"
+80 False
+90 "Incorrect Password. You have 3 tries left"
+100 tries = 3 - 1 = 2
+110 True
+60 "Please enter the password (Author's ID Number): "
+70 userResponse = "1768976"
+80 True, isCorrectPassword = true
+120 False
+130 "Please enter the amount borrowed: "
+140 amountBorrowed = 270000
+150 "Please enter the annual interest rate: "
+160 anInterestRate = 5.125
+170 monInterestRate = 5.125/1200 = 0.0042783
+180 monthlyPayment = (270000*((1+0.0042783)^360)*0.0042783)/((1+0.0042783^360)-1)=1470.11
+190 fileName = "mortgage.txt"
+200 "Amount Borrowed: $270000"
+210 "Annual Interest Rate: 5.125%"
+220 "Payback period: 30 years"
+230 "Monthly Payment: $1470.11"
+240 open fileName
+250 "Amount Borrowed: $270000"
+260 "Annual Interest Rate: 5.125%"
+270 "Payback period: 30 years"
+280 "Monthly Payment: $1470.11"
+290 close fileName
+999 END
+
+Test case #3:
+purpose: all incorrect passwords
+inputs: "1754", "174324", "5"
+expected final result: 
+"Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+"Please enter the password (Author's ID Number): 1754"
+"Incorrect Password. You have 2 tries left"
+"Please enter the password (Author's ID Number): 174324"
+"Incorrect Password. You have 1 tries left"
+"Please enter the password (Author's ID Number): 5"
+"Incorrect Password. You have 0 tries left"
+
+10 nMonthlyPayments = 360
+20 triesLeft = 3
+30 correctPassword = "1768976"
+40 isCorrectPassword = false
+50 "Objective: To calculate and output the monthly cost over 30 years of a fixed loan Author: Kristofer Santo"
+60 "Please enter the password (Author's ID Number): "
+70 userResponse = "1754"
+80 False
+90 "Incorrect Password. You have 2 tries left"
+100 tries = 3 - 1 = 2
+110 True
+60 "Please enter the password (Author's ID Number): "
+70 userResponse = "174324"
+80 False
+90 "Incorrect Password. You have 1 tries left"
+100 tries = 3 - 1 = 2
+110 True
+60 "Please enter the password (Author's ID Number): "
+70 userResponse = "5"
+80 False
+90 "Incorrect Password. You have 0 tries left"
+100 tries = 3 - 1 = 2
+110 False
+120 True
+999 END

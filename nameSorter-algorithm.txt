@@ -1,0 +1,311 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): to read names in a text file, sort them alphabetically, and output them to the screen
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-aName
+-fName
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. Enter name of the file and input names from file, with input validation
+4. Sort and output sorted names
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+- label1:"Enter the name of the file containing names: "
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-nNames (integer) number of names in list 
+-name (array-based list, text) list of names, max is 5 names
+-aName (text) temporary name
+-i (integer) index loop 1
+-j (integer) index loop 2
+-tempName (text) temporary name
+-fName (text) file name
+
+3. Algorithm instructions (recipe)
+***data
+10 nNames=0
+***introduction 
+20 output introduction: objective, author, instructions/rules
+***
+30 output label1
+40 input fName
+50 open file fName
+60 input aName, next line
+65 if length of aName=0, skip to 80
+70 if nNames<5, add aName to name
+80 if !end of file, skip to 60
+85 if name at i < name at j, skip to 120
+90 tempName=name at i
+100 name at i = name at j
+110 name at j = tempName
+120 j= j + 1
+130 if j < nNames skip to 85
+140 i = i + 1
+150 if i<nNames skip to 85
+160 i = 0
+170 output name at i
+180 i = i + 1
+190 if i<nNames, skip to 170
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal results with a list of 5 names
+inputs: 
+myFriends.txt
+Alex
+beth
+Carl
+Pat
+Sasha
+expected final result: 
+Alex
+beth
+Carl
+Pat
+Sasha
+
+10 nNames=0
+20 Objective: To read names in a text file, sort them alphabetically, and output them to the screen
+Author: Kristofer Santo
+30 Enter the name of the file containing names: 
+40 fName="myFriends.txt"
+50 open file "myFriends.txt"
+60 aName="Alex"
+65 False
+70 True
+80 True
+60 aName="beth"
+65 False
+70 True
+80 True
+60 aName="Carl"
+65 False
+70 True
+80 True
+60 aName="Pat"
+65 False
+70 True
+80 True
+60 aName="Sasha"
+65 False
+70 True
+80 False
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 0 + 1 = 1
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 1 = 2
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 2 = 3
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 3 = 4
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 4 = 5
+150 False
+160 i = 0
+170 Alex
+180 i = 0 + 1 = 1
+190 True
+170 beth
+180 i = 1 + 1 = 2
+190 True
+170 Carl
+180 i = 0 + 1 = 1
+190 True
+170 Pat
+180 i = 0 + 1 = 1
+190 True
+170 Sasha
+180 i = 0 + 1 = 1
+190 True
+999 END
+
+Test case #2:
+purpose: list with more than 5 names and 1 line with no text
+inputs: 
+expected final result: 
+
+10 nNames=0
+20 Objective: To read names in a text file, sort them alphabetically, and output them to the screen
+Author: Kristofer Santo
+30 Enter the name of the file containing names: 
+40 fName="myFriends.txt"
+50 open file "myFriends.txt"
+60 aName="Alex"
+65 False
+70 True
+80 True
+60 aName="beth"
+65 False
+70 True
+80 True
+60 aName="Carl"
+65 False
+70 True
+80 True
+60 aName="Pat"
+65 False
+70 True
+80 True
+60 aName="Sasha"
+65 False
+70 True
+80 False
+60 aName="Cuddles"
+65 False
+70 False
+80 False
+65 True
+80 True
+85 False
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 0 + 1 = 1
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 1 = 2
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 2 = 3
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 3 = 4
+150 True
+85 True
+120 j= 1 + 1 = 2
+130 True
+85 True
+120 j= 1 + 2 = 3
+130 True
+85 True
+120 j= 1 + 3 = 4
+130 True
+85 True
+120 j= 1 + 4 = 5
+130 False
+140 i = 1 + 4 = 5
+150 False
+160 i = 0
+170 Alex
+180 i = 0 + 1 = 1
+190 True
+170 beth
+180 i = 1 + 1 = 2
+190 True
+170 Carl
+180 i = 0 + 1 = 1
+190 True
+170 Pat
+180 i = 0 + 1 = 1
+190 True
+170 Sasha
+180 i = 0 + 1 = 1
+190 True
+999 END

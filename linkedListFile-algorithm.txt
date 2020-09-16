@@ -1,0 +1,124 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do):to calculate the average, lowest, highest, and scores above average of a list of scores 
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-score
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. read scores from file, input into list
+4. calculate the average, highest, and lowest scores
+
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label1 "Number of scores:"
+-label2 "Average: " 
+-label3 "Highest score:" 
+-label4 "Lowest score:"
+-label5 "number of scores above average:"
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-low (integer) lowest score
+-high (integer) highest score
+-average (decimal) average of all scores
+-nGreater (integer) number of scores above average
+-totalScores (integers) sum of all scores
+-count (integer) number of scores
+-scoreList (linked list) list of scores
+-i (integer) loop index
+-score (integer) score used to manipulate scoreList
+3. Algorithm instructions (recipe)
+***data
+10 count = 0
+20 nGreater=0
+30 totalScores=0
+35 i = 0
+***introduction 
+40 output introduction: objective, author, instructions/rules
+***
+50 open "scores.txt" file
+60 input score from "scores.txt"
+70 score added to scoreList
+80 sum = score + sum
+90 count= count + 1
+100 if !eof skip to 60
+110 close "scores.txt"
+120 average = sum/average
+130 if i in scoreList > high, high=i in scoreList
+140 if i in scoreList < low, low=i in scoreList
+150 if i in scoreList > average, nGreater = nGreater +1
+160 i= i + 1
+170 if i<count, skip to 130
+180 output label1 and count
+190 output label2 and average
+200 output label3 and low
+210 output label4 and high
+220 output lebel5 and nGreater
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal input (only one test case)
+inputs: 50 90 35 (from scores.txt)
+expected final result: 
+ "Number of Scores: 3
+ "Average: 58.3"
+ "Lowest score: 35"
+ "Highest score: 90"
+ "Number of above average scores: 1"
+10 count = 0
+20 nGreater=0
+30 totalScores=0
+35 i = 0
+***introduction 
+40 "Objective: to calculate the average, lowest, highest, and scores above average of a list of scores
+Programmer: Kristofer Santo"
+***
+50 open "scores.txt" file
+60 score = 35
+70 scoreList[0]=35
+80 sum = 35 + 0 = 35
+90 count= 0 + 1 = 1
+100 true
+60 score = 90
+70 scoreList[1] = 90
+80 sum = 90 + 35 = 125
+90 count = 1 + 1 = 2
+100 true
+60 score = 50
+70 scoreList[3] = 50
+80 sum = 125 + 50 = 175
+90 count = 2 + 1 = 3
+100 false
+110 close "scores.txt"
+120 average = 175/3 = 58.3
+124 low = 50
+128 high = 50
+130 false
+140 true, low = 35
+150 false
+160 i= 0 + 1 = 1
+170 true
+130 true, high = 90
+140 false
+150 true, nGreater = 0 + 1 = 1
+160 i =  1 + 1 = 2
+170 true
+130 false
+140 false
+150 false
+160 i = 2 + 1 =3
+170 false
+180 "Number of Scores: 3
+190 "Average: 58.3"
+200 "Lowest score: 35"
+210 "Highest score: 90"
+220 "Number of above average scores: 1"
+999 END
+
+

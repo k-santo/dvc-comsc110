@@ -1,0 +1,72 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To convert a file of celcius values into farenheit
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-celcius
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. convert the value of each celcius value into farenheit
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label celcius and " Celcius equals" and fahrenheit and " Fahrenheit"
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-celcius (decimal) celcius value to be converted into farenheit
+-fahrenheit (decimal) fahrenheit value to be converted from celcius
+
+3. Algorithm instructions (recipe)
+***introduction 
+10 output introduction: objective, author, instructions/rules
+***
+20 while celcius!= -999, perform 30-60
+30 input celcius from temps.txt, skip reading line on temps.txt
+40 if celcius != -999, perform 50-60
+50 fahrenheit = (9/5)*celcius+32.0
+60 label celcius and " Celcius equals" and fahrenheit and " fahrenheit"
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal input values, all correct
+inputs: 100.0, 0.0, -40.0, 100.001, -999
+expected final result: 
+"Author: Kristofer Santo
+Objective:To convert a file of celcius values into farenheit
+100. Celsius equals 212.0 Fahrenheit
+0. Celsius equals 32.0 Fahrenheit
+-40. Celsius equals -40.0 Fahrenheit
+100.001 Celsius equals 212.0 Fahrenheit"
+
+10 "Author: Kristofer Santo
+    Objective:To convert a file of celcius values into farenheit"
+20 true
+30 celcius=100.0
+40 true
+50 fahrenheit = (9/5)*100.0+32.0 = 180+32.0 = 212.0
+60 "100. Celcius equals 212.0 Fahrenheit"
+20 true
+30 celcius=0.0
+40 true
+50 fahrenheit = (9/5)*0+32.0 = 0+32.0 = 32.0
+60 "0. Celcius equals 32.0 Fahrenheit"
+20 true 
+30 celcius=-40.0
+40 true
+50 fahrenheit = (9/5)*-40.0+32.0 = -72+32.0 = -40.0
+60 "-40. Celcius equals -40.0 Fahrenheit"
+20 true
+30 celcius=100.001
+40 true
+50 fahrenheit = (9/5)*100.001+32.0 = 180+32.0 = 212.0
+60 "100.001 Celcius equals 212.0 Fahrenheit"
+20 true
+30 celcius = -999
+40 false
+20 false
+999 END

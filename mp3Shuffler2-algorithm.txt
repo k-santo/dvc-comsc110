@@ -1,0 +1,336 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To read all song titles from a text file and randomly select and output titles in a loop until the user wishes to stop
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-songName (from songs.txt)
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. open song file and input songs into song list
+4. allow user to choose songs generated randomly, taking into account the last 5 songs to ensure that they are not duplicates
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label1: Play a song [Y/N]?: 
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-choice (character) the user's choice whether to continue or not
+-randomSong (integer) the number generated randomly to choose the element of the song in the songs list
+-nSongs (integer) the number of songs
+-songName (text) name of the song
+-song (list, text) list of songs with a maximum of 200
+-dupSongs (collection, text) list of past 5 duplicate songs, max of 5
+-isDupSong (boolean) checks if there is a duplicate song
+-i (integer) loop index
+
+3. Algorithm instructions (recipe)
+***data
+10 nSongs=0
+15 isDupSong=false
+20 choice='y'
+***introduction 
+30 output introduction: objective, author, instructions/rules
+***
+40 open file "songs.txt"
+50 input songName, skip to next line
+60 if nSongs < 200, song at nSongs + 1 = songName
+70 if nSongs>=200, skip to 90
+80 if !end of file, skip to 50
+90 output label1
+100 input choice
+110 if choice='n' or choice='N', skip to 999
+120 randomSong = RNG % nSongs
+130 i = 0
+140 if dupSongs at i = song at randomSong, isDupSong=true and skip to, otherwise,  isDupSong=false
+150 i = i + 1
+160 if i>size of dupSongs, skip to 140
+170 if isdupSong=true, skip to 120
+180 output song at randomSong
+190 add song at randomSong to end of dupSong
+200 if size of dupSong >5, remove front of dupSong
+210 if choice ='y' or choice='Y', skip to 90
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+[Test case 1-2 are from mp3Shuffler1]
+Test case #1: 
+purpose: normal input, 
+inputs: 
+expected final result: 
+
+10 nSongs=0
+20 choice='y'
+30 Objective:To read all song titles from a text file and randomly select and output titles in a loop until the user wishes to stop
+Author: Kristofer Santo
+40 open file "songs.txt"
+50 songName="song1"
+60 True
+70 False
+80 False
+50 songName="song2"
+60 True
+70 False
+80 False
+50 songName="song3"
+60 True
+70 False
+80 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 2
+130 song3
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 2
+130 song3
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'Y'
+110 False
+120 randomSong = 1
+130 song2
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'N'
+110 True
+999 END
+
+Test case #2: 
+purpose: list has over 200 lines
+inputs: 
+expected final result: 
+10 nSongs=0
+20 choice='y'
+30 Objective:To read all song titles from a text file and randomly select and output titles in a loop until the user wishes to stop
+Author: Kristofer Santo
+40 open file "songs.txt"
+50 songName="song1"
+60 True
+70 False
+80 False
+[repeat 50-80, 199 times, plus different name]
+50 songName="song201"
+60 False
+70 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 175
+130 song176
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 72
+130 song73
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'Y'
+110 False
+120 randomSong = 173
+130 song174
+140 True
+90 Play a song [Y/N]?: 
+100 choice = 'N'
+110 True
+999 END
+
+Test case #3: 
+purpose: duplicate song
+inputs: from songs.txt
+expected final result: 
+song7
+song3
+
+10 nSongs=0
+15 isDupSong=false
+20 choice='y'
+30 Objective:To read all song titles from a text file and randomly select and output titles in a loop until the user wishes to stop
+Author: Kristofer Santo
+40 open file "songs.txt"
+50 songName="song1"
+60 True
+70 False
+80 False
+50 songName="song2"
+60 True
+70 False
+80 False
+50 songName="song4"
+60 True
+70 False
+80 False
+50 songName="song5"
+60 True
+70 False
+80 False
+50 songName="song6"
+60 True
+70 False
+80 False
+50 songName="song7"
+60 True
+70 False
+80 False
+50 songName="song3"
+60 True
+70 False
+80 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 6
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song7
+190 dupSong(end)=song7
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 6
+130 i = 0
+140 true
+170 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 4
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song3
+190 dupSong(end)=song3
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'n'
+110 true
+999 END
+
+Test case #4: 
+purpose: check if duplicate song list is greater than 5
+inputs: from songs.txt
+expected final result: 
+song3
+song6
+song4
+song7
+song2
+
+10 nSongs=0
+15 isDupSong=false
+20 choice='y'
+30 Objective:To read all song titles from a text file and randomly select and output titles in a loop until the user wishes to stop
+Author: Kristofer Santo
+40 open file "songs.txt"
+50 songName="song1"
+60 True
+70 False
+80 False
+50 songName="song2"
+60 True
+70 False
+80 False
+50 songName="song4"
+60 True
+70 False
+80 False
+50 songName="song5"
+60 True
+70 False
+80 False
+50 songName="song6"
+60 True
+70 False
+80 False
+50 songName="song7"
+60 True
+70 False
+80 False
+50 songName="song3"
+60 True
+70 False
+80 True
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 6
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song7
+190 dupSong(end)=song7
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 4
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song3
+190 dupSong(end)=song3
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 3
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song2
+190 dupSong(end)=song2
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 4
+130 i = 0
+140 false
+150 i = 0 + 1=1
+160 false
+170 false
+180 song4
+190 dupSong(end)=song4
+200 false
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'y'
+110 False
+120 randomSong = 8
+130 i = 0
+140 false
+150 i = 1 + 1=1
+160 false
+170 false
+180 song3
+190 dupSong(end)=song7
+200 true
+210 true
+90 Play a song [Y/N]?: 
+100 choice = 'n'
+110 true
+999 END

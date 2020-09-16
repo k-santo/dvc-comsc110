@@ -1,0 +1,84 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): Calculate the average age of all students in the classroom 
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input): 
+-numberOfPeople
+-age
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. user inputs the number of people
+4. a loop that inputs all age values for the number of people and adds them to the sum
+5. calculate the average and output it in a statement
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-user introduction: introduction of objective, author, user instructions/rules
+-prompt "What is the age in years of one of the people in the classroom [1-122]? "
+-prompt "How many people are in the classroom [>0]? "
+-label "The average age (in years) of all the people in the classroom is " and averageAge
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-numberOfPeople (integer) the number of people in the classroom (0 < numberOfPeople)
+-age (integer) the age of a person (in years) in the classroom (0-122)
+-sum (integer) the sum of all ages of people in the classroom (in years)
+-averageAge (integer) the average age of all people in the classroom (in years)
+-count (integer) count of the people in for loops
+3. Algorithm instructions (recipe)
+***data
+10 set numberOfPeople
+20 set age
+30 set sum=0
+40 set averageAge
+***introduction 
+50 output introduction: objective, author, instructions/rules
+***
+60 prompt "How many people are in the classroom [>0]? "
+70 user inputs numberOfPeople
+80 set count=0, until count<numberOfPeople, count+1, repeat the following:
+90 prompt "What is the age in years of one of the people in the classroom [1-122]? "
+100 user inputs age
+110 set sum = sum + age, end loop
+120 set averageAge= sum/numberOfPeople
+130 output label "The average age (in years) of all the people in the classroom is " and averageAge
+
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: normal, tested values
+inputs: 4, 25, 37, 19, 50
+expected results: The average age (in years) of all the people in the classroom is 33
+10 set numberOfPeople
+20 set age
+30 set sum=0
+40 set averageAge
+50 Objective: calculate the average age of all students in the classroom
+Author: Kristofer Santo
+60 How many people are in the classroom [>0]?
+70 numberOfPeople=4
+80 count=0
+90 What is the age in years of one of the people in the classroom [1-122]
+100 age=25
+110 sum=25, FALSE
+80  count=1
+90 What is the age in years of one of the people in the classroom [1-122]
+100 age=37
+110 sum =62, FALSE
+80 count=2
+90 What is the age in years of one of the people in the classroom [1-122]
+100 age=19
+110 sum=81, FALSE
+80 count= 3
+90 What is the age in years of one of the people in the classroom [1-122]
+100 age=50
+110 sum=131, TRUE
+120 averageAGe = 131/4 = 33
+130 The average age (in years) of all the people in the classroom is 33
+
+
+999 END

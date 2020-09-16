@@ -1,0 +1,52 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): To find how many weeks it takes to be a billionaire, millionaire, and thousandaire if an allowance is doubled each week
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input):
+-none
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions
+2. user introduction
+3. find weeks after incrementation to 1000 dollars, 1000000 dollars, and 1000000000 dollars
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-label "In " and weeks " weeks, I will be a thousandaire"
+-label "In " and weeks " weeks, I will be a millionaire"
+-label "In " and weeks " weeks, I will be a billionaire"
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+-finalAmount (decimal) amount of money looked for in dollars
+-netMoney(decimal) amount of money in piggy bank in dollars
+-allowance(decimal) allowance received every week
+-weeks (integer) number of weeks
+
+3. Algorithm instructions (recipe)
+***data
+10 netMoney=0.05
+20 allowance=0.05
+***introduction 
+30 output introduction: objective, author, instructions/rules
+***
+40 finalAmount=1000
+50 while netMoney<finalAmount, allowance = 2*allowance, netMoney=netMoney+allowance, weeks=weeks+1
+60 output "In " and weeks " weeks, I will be a millionaire"
+70 weeks=1
+80 netMoney=0.05
+90 allowance=0.05
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: same output (will be same, as no user input
+expected final result: 
+
+999 END
+
+Test case #2:
+purpose: normal input, with incorrect
+
+
+
+999 END

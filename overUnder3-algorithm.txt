@@ -1,0 +1,208 @@
+Kristofer Santo 1768976
+COMSC-110-8076
+
+1. Objective (1 sentence brief description of what this will do): User will guess a number between 1 and 100
+
+2. Requirements (any and all requirements organized by input, processing, output, data):
+INPUT (any data items to be input): 
+-userGuess
+-scoreLine
+
+PROCESSING (list of significant parts of the objective that will become the list of code blocks in program):
+1. data definitions, seed a random number
+2. user introduction
+3. input user guess, check for sentinel value, valid guess, or duplicate guess
+4. determine appropriate feedback
+5. output results
+
+OUTPUT (list of anything output: introduction, data items, labels, prompts) : 
+-user introduction: introduction of objective, author, user instructions/rules
+-prompt1 "I'm thinking of a number between 1 and 100, guess what it is [-999 to quit]: "
+-prompt2 "That's too high-- guess again: "
+-prompt3 "That's too low-- guess again: " 
+-label2 "That's right! It's " 
+-prompt5 "Invalid input-- guess again: "
+-label1 "You already guessed"
+-prompt6 "-- guess again: "
+-
+
+DATA (list of all data items: definition, data type, formatting, or any other specifications):
+- target (integer) number between 1 and 100 that the user will attempt to guess
+- userGuess (integer) guess that the user inputs
+- dupGuesses (list) list of duplicate guesses, maximum element of list is 100
+- nDupGuesses (integer) number of duplicate guesses
+- checkDupGuess (boolean) checks if there are duplicate guesses
+- scoreLine (text) line showing previous player's score
+- nGuesses (integer) total number of guesses
+- i (integer) loop index
+
+3. Algorithm instructions (recipe)
+***data
+10 initialize random number generator and set target to random number between 1 and 100
+20 nDupGuesses=0
+30 nGuesses=0
+***introduction 
+40 output introduction: objective, author, instructions/rules
+***
+50 open "scores.txt" input file 
+60 input scoreLine
+70 close "scores.txt" input file
+80 output scoreLine
+90 output prompt1
+100 input userGuess
+110 if userGuess==-999, skip to 230
+120 if userGuess < 1 or userGuess > 100, output prompt5, skip to 100
+130 i = 0
+140 if dupGuesses[i]==userGuess, checkDupGuess = true
+150 i = i + 1 
+160 if i<nDupGuesses, skip to 140
+170 if checkDupGuess = true, output label1 and userGuess and prompt6, skip to 100, checkDupGuess=false
+180 if nDupGuesses < 100, dupGuesses[nDupGuesses = nDupGuesses+1] = userGuess
+190 if userGuess < target, output prompt3 
+200 if userGuess > target, output prompt2 
+210 if userGuess = target, output label2 and target, skip to 230, nGuesses = nGuesses + 1
+220 nGuesses = nGuesses + 1, and skip to instruction 100
+230 output "Player took " and nGuesses and " guesses to guess the correct number
+240 open output file "scores.txt"
+250 output "Last player took" and nGuesses and " guesses to guess the correct number" 
+260 close output file "scores.txt"
+999 END
+
+4. Test cases (list purpose of each test case, any input values, and expected results)
+
+Test case #1: 
+purpose: invalid input, no duplicates, low, high, and correct
+input: 0 25 37 28
+expected results:
+I'm thinking of a number between 1 and 100. Guess what it is: 0
+Invalid input -- guess again: 25
+That's too low -- guess again: 37
+That's too high -- guess again: 28
+That's right -- it's 28 
+Player took 3 guesses to guess the correct number
+
+10 target = 28
+20 nDupGuesses=0
+30 nGuesses=0
+40 "Objective: User will guess a number between 1 and 100
+    Author: Kristofer Santo"
+50 open "scores.txt" input file 
+60 scoreLine = "Last player took 5 guesses to guess the correct number."
+70 close "scores.txt" input file
+80 "Last player took 5 guesses to guess the correct number."
+90 "I'm thinking of a number between 1 and 100. Guess what it is [-999 to quit]: "
+100 userGuess = 0
+110 False
+120 True, "Invalid input--guess again: "
+100 userGuess = 25
+110 False
+120 False
+130 i = 0
+140 False
+150 i = 1
+160 False
+170 False
+180 True, dupGuesses[1] = 25
+190 True, "That's too low-- guess again: "
+200 False
+210 False
+220 nGuesses = 0 + 1 = 1
+100 userGuess = 37 
+110 False
+120 False
+130 i = 0
+140 False
+150 i = 1
+160 False
+170 False
+180 True, dupGuesses[2]= 37
+190 False
+200 True, "That's too high--guess again: "
+210 False
+220 nGuesses = 1 + 1 = 2
+100 userGuess = 28
+110 False
+120 False
+130 i = 0
+140 False
+150 i = 0 + 1 = 1
+160 True
+140 False
+150 i = 1 + 1 = 2
+160 False
+170 False
+180 True, dupGuesses[3] = 28
+190 False
+200 False
+210 True "That's right -- it's 28 ", nGuesses = 2 + 1 = 3
+230 "Player took 3 guesses to guess the correct number
+240 open output file "scores.txt"
+250 "Last player took 3 guesses to guess the correct number" 
+260 close output file "scores.txt"
+999 END
+
+Test case #2: 
+purpose: invalid input, duplicate, low, high, and sentinel
+input: 0 25 25 37 -999
+expected results:
+I'm thinking of a number between 1 and 100. Guess what it is: 0
+Invalid input -- guess again: 25
+That's too low -- guess again: 25
+You already guessed 25 -- guess again: 37
+That's too high -- guess again: -999
+Player took 2 guesses to guess the correct number
+
+10 target = 28
+20 nDupGuesses=0
+30 nGuesses=0
+40 "Objective: User will guess a number between 1 and 100
+    Author: Kristofer Santo"
+50 open "scores.txt" input file 
+60 scoreLine = "Last player took 3 guesses to guess the correct number."
+70 close "scores.txt" input file
+80 "Last player took 3 guesses to guess the correct number."
+90 "I'm thinking of a number between 1 and 100. Guess what it is [-999 to quit]: "
+100 userGuess = 0
+110 False
+120 True, "Invalid input--guess again: "
+100 userGuess = 25
+110 False
+120 False
+130 i = 0
+140 False
+150 i = 1
+160 False
+170 False
+180 True, dupGuesses[1] = 25
+190 True, "That's too low-- guess again: "
+200 False
+210 False
+220 nGuesses = 0 + 1 = 1
+100 userGuess = 25
+110 False
+120 False
+130 i = 0
+140 True, checkDupGuess=True
+150 i = 1
+160 False
+170 True, You already guessed 25 -- guess again:
+100 userGuess = 37
+110 False
+120 False
+130 i = 0
+140 False
+150 i = 1
+160 False
+170 False
+180 True, dupGuesses[2]= 37
+190 False
+200 True, "That's too high--guess again: "
+210 False
+220 nGuesses = 1 + 1 = 2
+100 userGuess = -999
+110 True
+230 "Player took 2 guesses to guess the correct number
+240 open output file "scores.txt"
+250 "Last player took 2 guesses to guess the correct number" 
+260 close output file "scores.txt"
+999 END
